@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #e8a9a9;
+    /* Soft Pink */
+    --color-secondary: #f5f5f5;
+    /* Light Gray/Beige */
+    --color-accent: #d4a373;
+    /* Gold/Bronze */
+    --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+    html {
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+        @apply text-gray-800 bg-white antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold tracking-tight text-gray-900;
+    }
+}
+
+/* Custom Utilities */
+.container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
