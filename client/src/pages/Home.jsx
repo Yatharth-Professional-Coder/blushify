@@ -4,11 +4,11 @@ import ProductCard from '../components/ProductCard';
 import { Link } from 'react-router-dom';
 
 const categories = [
-    { name: 'Skin Care', image: 'https://blushify.infinityfree.me/wp-content/uploads/2023/07/cat-1.jpg' },
-    { name: 'Bridal', image: 'https://blushify.infinityfree.me/wp-content/uploads/2023/07/cat-2.jpg' },
-    { name: 'Makeup', image: 'https://blushify.infinityfree.me/wp-content/uploads/2023/07/cat-3.jpg' },
-    { name: 'Lips', image: 'https://blushify.infinityfree.me/wp-content/uploads/2023/07/cat-4.jpg' },
-    { name: 'Eyes', image: 'https://blushify.infinityfree.me/wp-content/uploads/2023/07/cat-5.jpg' },
+    { name: 'Skin Care', image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&h=300&fit=crop' },
+    { name: 'Bridal', image: 'https://swissbeauty.in/cdn/shop/files/bridal_section_Thumbnail_1_1080x.jpg?v=1736341692' },
+    { name: 'Makeup', image: 'https://www.britannica.com/story/why-did-we-start-wearing-makeup' },
+    { name: 'Lips', image: 'https://swissbeauty.in/cdn/shop/files/3_1-LIPS_140x140.png?v=1747133814' },
+    { name: 'Eyes', image: 'https://swissbeauty.in/cdn/shop/files/2a_b0e928b4-c1b1-4e4f-9a11-4c32c8c984f6_140x140.png?v=1663159924' },
 ];
 
 const Home = () => {
