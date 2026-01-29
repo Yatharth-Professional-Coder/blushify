@@ -4,11 +4,11 @@ import ProductCard from '../components/ProductCard';
 import { Link } from 'react-router-dom';
 
 const categories = [
-    { name: 'Skin Care', image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&h=300&fit=crop' },
-    { name: 'Bridal', image: 'https://swissbeauty.in/cdn/shop/files/bridal_section_Thumbnail_1_1080x.jpg?v=1736341692' },
-    { name: 'Makeup', image: 'https://cdn.britannica.com/35/222035-050-C68AD682/makeup-cosmetics.jpg' },
-    { name: 'Lips', image: 'https://swissbeauty.in/cdn/shop/files/3_1-LIPS_140x140.png?v=1747133814' },
-    { name: 'Eyes', image: 'https://swissbeauty.in/cdn/shop/files/2a_b0e928b4-c1b1-4e4f-9a11-4c32c8c984f6_140x140.png?v=1663159924' },
+    { name: 'Skin Care', image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&h=300&fit=crop', path: '/shop' },
+    { name: 'Bridal', image: 'https://swissbeauty.in/cdn/shop/files/bridal_section_Thumbnail_1_1080x.jpg?v=1736341692', path: '/shop' },
+    { name: 'Makeup', image: 'https://cdn.britannica.com/35/222035-050-C68AD682/makeup-cosmetics.jpg', path: '/shop' },
+    { name: 'Lips', image: 'https://swissbeauty.in/cdn/shop/files/3_1-LIPS_140x140.png?v=1747133814', path: '/shop' },
+    { name: 'Eyes', image: 'https://swissbeauty.in/cdn/shop/files/2a_b0e928b4-c1b1-4e4f-9a11-4c32c8c984f6_140x140.png?v=1663159924', path: '/shop' },
 ];
 
 const Home = () => {
@@ -57,12 +57,12 @@ const Home = () => {
                 <div className="container-custom">
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
                         {categories.map((cat, index) => (
-                            <div key={index} className="group cursor-pointer">
+                            <Link to={cat.path} key={index} className="group cursor-pointer block">
                                 <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-2 border-transparent group-hover:border-primary transition-all">
-                                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" />
+                                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
                                 </div>
-                                <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-white">{cat.name}</h3>
-                            </div>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-white group-hover:text-primary transition-colors">{cat.name}</h3>
+                            </Link>
                         ))}
                     </div>
                 </div>
