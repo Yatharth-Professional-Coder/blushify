@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 // Database connection
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/blushify')
@@ -39,8 +40,17 @@ app.use(express.json());
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Blushify API is running');
+});
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 // Start Server
