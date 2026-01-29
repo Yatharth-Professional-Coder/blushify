@@ -34,12 +34,12 @@ const ProductDetails = () => {
     if (!product) return <div className="text-center py-20">Product not found</div>;
 
     return (
-        <div className="bg-white py-12">
+        <div className="bg-white dark:bg-gray-900 py-12 transition-colors duration-300">
             <div className="container-custom">
                 <div className="flex flex-col md:flex-row gap-12">
                     {/* Product Image */}
                     <div className="md:w-1/2">
-                        <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                        <div className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
                             <img
                                 src={product.images[0] || 'https://via.placeholder.com/600'}
                                 alt={product.title}
@@ -50,8 +50,8 @@ const ProductDetails = () => {
 
                     {/* Product Info */}
                     <div className="md:w-1/2">
-                        <p className="text-sm text-gray-500 uppercase tracking-widest mb-2">{product.category}</p>
-                        <h1 className="text-3xl lg:text-4xl font-bold mb-4">{product.title}</h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2">{product.category}</p>
+                        <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white">{product.title}</h1>
 
                         <div className="flex items-center mb-6">
                             <div className="text-2xl font-bold">
@@ -61,26 +61,26 @@ const ProductDetails = () => {
                                         <span className="text-red-500">${product.salePrice.toFixed(2)}</span>
                                     </>
                                 ) : (
-                                    <span>${product.price.toFixed(2)}</span>
+                                    <span className="text-gray-900 dark:text-white">${product.price.toFixed(2)}</span>
                                 )}
                             </div>
                         </div>
 
-                        <p className="text-gray-600 leading-relaxed mb-8">
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
                             {product.description}
                         </p>
 
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="flex items-center border border-gray-300">
+                            <div className="flex items-center border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white">
                                 <button
-                                    className="px-4 py-2 hover:bg-gray-100 disabled:opacity-50"
+                                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50"
                                     onClick={() => setQuantity(q => Math.max(1, q - 1))}
                                 >
                                     -
                                 </button>
                                 <span className="px-4">{quantity}</span>
                                 <button
-                                    className="px-4 py-2 hover:bg-gray-100"
+                                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                                     onClick={() => setQuantity(q => q + 1)}
                                 >
                                     +
@@ -88,22 +88,22 @@ const ProductDetails = () => {
                             </div>
                             <button
                                 onClick={handleAddToCart}
-                                className="flex-1 bg-black text-white px-8 py-3 uppercase tracking-widest font-bold text-sm hover:bg-gray-800 transition-colors"
+                                className="flex-1 bg-black dark:bg-white text-white dark:text-black px-8 py-3 uppercase tracking-widest font-bold text-sm hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
                             >
                                 Add to Cart
                             </button>
                         </div>
 
-                        <div className="flex items-center gap-6 text-sm text-gray-500">
-                            <button className="flex items-center gap-2 hover:text-black">
+                        <div className="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+                            <button className="flex items-center gap-2 hover:text-black dark:hover:text-white">
                                 <FaHeart /> Add to Wishlist
                             </button>
-                            <button className="flex items-center gap-2 hover:text-black">
+                            <button className="flex items-center gap-2 hover:text-black dark:hover:text-white">
                                 <FaShare /> Share
                             </button>
                         </div>
 
-                        <div className="mt-8 pt-8 border-t border-gray-100 text-xs text-gray-500 uppercase tracking-wider space-y-2">
+                        <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider space-y-2">
                             <p>SKU: {product._id.slice(-6)}</p>
                             <p>Category: {product.category}</p>
                         </div>

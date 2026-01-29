@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
     return (
-        <div className="group relative">
-            <div className="relative aspect-square overflow-hidden bg-gray-100 mb-4">
+        <div className="group relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden transition-colors duration-300 shadow-sm hover:shadow-md">
+            <div className="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-700 mb-4">
                 <img
                     src={product.images[0] || 'https://via.placeholder.com/300'}
                     alt={product.title}
@@ -15,16 +15,16 @@ const ProductCard = ({ product }) => {
                         Sale
                     </span>
                 )}
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-white/90 backdrop-blur-sm">
-                    <button className="w-full bg-black text-white py-2 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
+                    <button className="w-full bg-black dark:bg-white text-white dark:text-black py-2 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
                         <FaShoppingBag /> Add to Cart
                     </button>
                 </div>
             </div>
 
-            <div className="text-center">
-                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">{product.category}</p>
-                <h3 className="text-sm font-bold text-gray-900 mb-2">
+            <div className="text-center p-4">
+                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{product.category}</p>
+                <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2">
                     <Link to={`/product/${product._id}`}>
                         {product.title}
                     </Link>
@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
                             <span className="text-red-500 font-bold">${product.salePrice.toFixed(2)}</span>
                         </>
                     ) : (
-                        <span className="font-bold">${product.price.toFixed(2)}</span>
+                        <span className="font-bold text-gray-900 dark:text-white">${product.price.toFixed(2)}</span>
                     )}
                 </div>
             </div>

@@ -30,20 +30,20 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="bg-white">
+        <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
             {/* Hero Section */}
-            <div className="relative h-[600px] bg-gray-100 flex items-center">
+            <div className="relative h-[600px] bg-gray-100 dark:bg-gray-800 flex items-center">
                 <div className="absolute inset-0">
                     <img
-                        src="https://blushify.infinityfree.me/wp-content/uploads/2023/07/slider-1.jpg"
+                        src="https://blushify.infinityfhttp://blushify.infinityfree.me/wp-content/uploads/2025/12/ChatGPT-Image-Dec-23-2025-11_08_22-PM-1.pngree.me/wp-content/uploads/2023/07/slider-1.jpg"
                         alt="Hero Banner"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover opacity-80 dark:opacity-60"
                     />
-                    <div className="absolute inset-0 bg-black/10"></div>
+                    <div className="absolute inset-0 bg-black/10 dark:bg-black/40"></div>
                 </div>
                 <div className="container-custom relative z-10 text-center md:text-left">
-                    <span className="block text-white uppercase tracking-[0.2em] mb-4 text-sm font-bold">New Collection</span>
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    <span className="block text-white uppercase tracking-[0.2em] mb-4 text-sm font-bold shadow-black drop-shadow-md">New Collection</span>
+                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
                         Natural Beauty <br /> Reinvented
                     </h1>
                     <Link to="/shop" className="inline-block bg-white text-black px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors duration-300">
@@ -53,7 +53,7 @@ const Home = () => {
             </div>
 
             {/* Categories */}
-            <section className="py-20">
+            <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
                 <div className="container-custom">
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
                         {categories.map((cat, index) => (
@@ -61,7 +61,7 @@ const Home = () => {
                                 <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-2 border-transparent group-hover:border-primary transition-all">
                                     <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" />
                                 </div>
-                                <h3 className="text-sm font-bold uppercase tracking-wider">{cat.name}</h3>
+                                <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-white">{cat.name}</h3>
                             </div>
                         ))}
                     </div>
@@ -69,16 +69,16 @@ const Home = () => {
             </section>
 
             {/* Daily Deals */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
                 <div className="container-custom">
                     <div className="text-center mb-12">
                         <span className="text-primary font-bold uppercase tracking-widest text-xs">Don't Miss Out</span>
-                        <h2 className="text-3xl font-bold mt-2 mb-4">Daily Deals</h2>
-                        <div className="w-16 h-1 bg-black mx-auto"></div>
+                        <h2 className="text-3xl font-bold mt-2 mb-4 text-gray-900 dark:text-white">Daily Deals</h2>
+                        <div className="w-16 h-1 bg-black dark:bg-white mx-auto"></div>
                     </div>
 
                     {loading ? (
-                        <p className="text-center">Loading products...</p>
+                        <p className="text-center text-gray-500 dark:text-gray-300">Loading products...</p>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                             {products.slice(0, 4).map((product) => (
@@ -88,7 +88,7 @@ const Home = () => {
                     )}
 
                     <div className="text-center mt-12">
-                        <Link to="/shop" className="inline-block border-b-2 border-black pb-1 text-sm font-bold uppercase tracking-widest hover:text-primary hover:border-primary transition-colors">
+                        <Link to="/shop" className="inline-block border-b-2 border-black dark:border-white pb-1 text-sm font-bold uppercase tracking-widest text-black dark:text-white hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary transition-colors">
                             View All Products
                         </Link>
                     </div>

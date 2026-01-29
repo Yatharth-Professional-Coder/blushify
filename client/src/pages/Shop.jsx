@@ -21,11 +21,11 @@ const Shop = () => {
     }, []);
 
     return (
-        <div className="bg-white pt-10 pb-20">
+        <div className="bg-white dark:bg-gray-900 pt-10 pb-20 transition-colors duration-300">
             <div className="container-custom">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold mb-4">Shop All</h1>
-                    <p className="text-gray-500 max-w-2xl mx-auto">
+                    <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
                         Explore our collection of premium beauty products designed to enhance your natural glow.
                     </p>
                 </div>
