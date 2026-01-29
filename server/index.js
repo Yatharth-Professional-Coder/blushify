@@ -13,7 +13,24 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+        const allowedOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+
+        // Allow the specific CLIENT_URL
+        if (origin === allowedOrigin) return callback(null, true);
+
+        // Allow Vercel preview deployments (any subdomain of vercel.app)
+        // Adjust this regex if you want to be more restrictive, e.g., /blushify-.*\.vercel\.app$/
+        if (origin.endsWith('.vercel.app')) return callback(null, true);
+
+        // Allow localhost for development
+        if (origin.includes('localhost')) return callback(null, true);
+
+        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+        return callback(new Error(msg), false);
+    },
     credentials: true
 }));
 app.use(express.json());
