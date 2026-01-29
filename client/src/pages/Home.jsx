@@ -81,7 +81,7 @@ const Home = () => {
                         <p className="text-center text-gray-500 dark:text-gray-300">Loading products...</p>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                            {products.slice(0, 4).map((product) => (
+                            {products.filter(p => p.isDailyDeal).map((product) => (
                                 <ProductCard key={product._id} product={product} />
                             ))}
                         </div>

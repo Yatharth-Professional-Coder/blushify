@@ -15,7 +15,8 @@ const products = [
         description: "Capture the glow of perfect skin with this luminous, award-winning foundation.",
         category: "Face",
         images: ["https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        isDailyDeal: true
     },
     {
         title: "Advanced Night Repair Serum",
@@ -24,7 +25,8 @@ const products = [
         description: "Wake up to beautiful skin every day with our #1 serum. Fights key signs of aging.",
         category: "Skin Care",
         images: ["https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        isDailyDeal: true
     },
     {
         title: "Matte Revolution Lipstick",
@@ -33,7 +35,8 @@ const products = [
         description: "The matte lipstick of the future! Enriched with orchid extracts for hydration.",
         category: "Lips",
         images: ["https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        isDailyDeal: true
     },
     {
         title: "Volumizing Mascara",
@@ -42,7 +45,8 @@ const products = [
         description: "Instant lift, volume and length for your lashes. Clump-free formula.",
         category: "Eyes",
         images: ["https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        isDailyDeal: true
     },
     // Other Products
     {
@@ -77,6 +81,56 @@ const products = [
         description: "Lightweight moisturizer for daily use.",
         category: "Skin Care",
         images: ["https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?w=500&h=500&fit=crop"],
+        inStock: true
+    },
+    {
+        title: "Waterproof Gel Eyeliner",
+        price: 20.00,
+        description: "Precision gel eyeliner that stays put all day and night.",
+        category: "Eyes",
+        images: ["https://images.unsplash.com/photo-1625902830302-3f820c7419e8?w=500&h=500&fit=crop"],
+        inStock: true
+    },
+    {
+        title: "Vitamin C Brightening Mask",
+        price: 35.00,
+        salePrice: 29.00,
+        description: "Revitalize your skin with our Vitamin C packed brightening mask.",
+        category: "Skin Care",
+        images: ["https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500&h=500&fit=crop"],
+        inStock: true
+    },
+    {
+        title: "Liquid Gold Highlighter",
+        price: 42.00,
+        description: "Ultimate radiance in a bottle. Shimmer like a star.",
+        category: "Face",
+        images: ["https://images.unsplash.com/photo-1557204562-672522778eee?w=500&h=500&fit=crop"],
+        inStock: true
+    },
+    {
+        title: "Stay-All-Day Lip Liner",
+        price: 18.00,
+        description: "Define your lips with our creamy, smudge-proof liner.",
+        category: "Lips",
+        images: ["https://images.unsplash.com/photo-1616683693504-3ee7e14e644b?w=500&h=500&fit=crop"],
+        inStock: true
+    },
+    {
+        title: "Ultimate Bridal Palette",
+        price: 75.00,
+        salePrice: 60.00,
+        description: "Every shade you need for a stunning bridal look in one luxury palette.",
+        category: "Bridal Bundle",
+        images: ["https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500&h=500&fit=crop"],
+        inStock: true
+    },
+    {
+        title: "Rose Water Soothing Toner",
+        price: 24.00,
+        description: "Natural rose water to calm and refresh your complexion.",
+        category: "Skin Care",
+        images: ["https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500&h=500&fit=crop"],
         inStock: true
     }
 ];
