@@ -103,7 +103,10 @@ const Cart = () => {
                                 <span>Total</span>
                                 <span>₹{total.toFixed(2)}</span>
                             </div>
-                            <button className="w-full bg-black text-white py-4 font-bold uppercase tracking-widest text-sm hover:bg-gray-800 transition-colors">
+                            <button
+                                onClick={() => window.location.href = '/checkout'}
+                                className="w-full bg-black text-white py-4 font-bold uppercase tracking-widest text-sm hover:bg-gray-800 transition-colors"
+                            >
                                 Proceed to Checkout
                             </button>
                         </div>

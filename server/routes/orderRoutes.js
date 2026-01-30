@@ -11,13 +11,18 @@ router.post('/', async (req, res) => {
         let userId = null;
 
         if (token) {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret');
-            userId = decoded.userId;
+            try {
+                const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret');
+                userId = decoded.userId;
+            } catch (err) {
+                console.log('Invalid token, proceeding as guest');
+            }
         }
 
         const newOrder = new Order({
             ...req.body,
-            user: userId || req.body.userId // Fallback if no token for some reason
+            user: userId || req.body.userId || null,
+            guestInfo: userId ? null : req.body.guestInfo
         });
 
         const savedOrder = await newOrder.save();

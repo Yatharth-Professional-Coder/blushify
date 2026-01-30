@@ -11,6 +11,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import CategoryPage from './pages/CategoryPage';
 import AdminDashboard from './pages/AdminDashboard';
+import Checkout from './pages/Checkout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/category/:categoryName" element={<CategoryPage />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/admin" element={<AdminDashboard />} />
