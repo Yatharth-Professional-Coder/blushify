@@ -131,7 +131,8 @@ const products = [
         description: "Natural rose water to calm and refresh your complexion.",
         category: "Skin Care",
         images: ["https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 100
     }
 ];
 
