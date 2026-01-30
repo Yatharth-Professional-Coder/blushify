@@ -41,9 +41,14 @@ const Header = () => {
                     </button>
 
                     {user ? (
-                        <div className="flex items-center gap-2">
-                            <span className="text-xs font-bold uppercase hidden md:inline">{user.name.split(' ')[0]}</span>
-                            <button onClick={handleLogout} className="text-xs uppercase hover:underline">Logout</button>
+                        <div className="flex items-center gap-4">
+                            {user.role === 'admin' && (
+                                <Link to="/admin" className="text-xs font-bold uppercase text-red-600 hover:text-red-700">Admin</Link>
+                            )}
+                            <div className="flex items-center gap-2 border-l border-gray-200 pl-4">
+                                <span className="text-xs font-bold uppercase hidden md:inline">{user.name.split(' ')[0]}</span>
+                                <button onClick={handleLogout} className="text-xs uppercase hover:underline">Logout</button>
+                            </div>
                         </div>
                     ) : (
                         <Link to="/login" className="hover:text-black dark:hover:text-white transition-colors">
