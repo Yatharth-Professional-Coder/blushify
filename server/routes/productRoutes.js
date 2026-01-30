@@ -65,10 +65,17 @@ router.put('/:id', adminMiddleware, async (req, res) => {
 
 // Delete product
 router.delete('/:id', adminMiddleware, async (req, res) => {
+    console.log(`DELETE request for product ID: ${req.params.id}`);
     try {
-        await Product.findByIdAndDelete(req.params.id);
+        const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+        if (!deletedProduct) {
+            console.log('Product not found in DB');
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        console.log('Product deleted successfully');
         res.json({ message: 'Product deleted' });
     } catch (err) {
+        console.error('Delete error:', err);
         res.status(500).json({ message: err.message });
     }
 });

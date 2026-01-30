@@ -11,10 +11,12 @@ const createAdmin = async () => {
         const existingAdmin = await User.findOne({ email: adminEmail });
 
         if (existingAdmin) {
-            console.log('Admin already exists');
+            console.log('Admin already exists. Updating role and resetting password...');
             existingAdmin.role = 'admin';
+            const salt = await bcrypt.genSalt(10);
+            existingAdmin.password = await bcrypt.hash('admin123', salt);
             await existingAdmin.save();
-            console.log('Ensured user has admin role');
+            console.log('Ensured user has admin role and password reset to: admin123');
         } else {
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash('admin123', salt);
