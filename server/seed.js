@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Product = require('./models/Product');
 const User = require('./models/User'); // Optional: Seed a default user if needed
 
-mongoose.connect('mongodb://localhost:27017/blushify')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/blushify')
     .then(() => console.log('MongoDB connected for seeding'))
     .catch(err => console.log(err));
 

@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -14,6 +15,7 @@ const Shop = () => {
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setError('Failed to load products. Please check if the API is running.');
                 setLoading(false);
             }
         };
@@ -30,7 +32,12 @@ const Shop = () => {
                     </p>
                 </div>
 
-                {loading ? (
+                {error ? (
+                    <div className="text-center py-20 text-red-500">
+                        <p>{error}</p>
+                        <button onClick={() => window.location.reload()} className="mt-4 text-primary underline">Try Again</button>
+                    </div>
+                ) : loading ? (
                     <div className="flex justify-center items-center h-64">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
                     </div>

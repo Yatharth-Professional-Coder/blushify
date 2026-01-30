@@ -7,6 +7,7 @@ const CategoryPage = () => {
     const { categoryName } = useParams();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     // Helper to map URL slug to DB Category Name
     const getCategoryName = (slug) => {
@@ -33,6 +34,7 @@ const CategoryPage = () => {
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setError('Failed to load products for this category.');
                 setLoading(false);
             }
         };
@@ -51,7 +53,12 @@ const CategoryPage = () => {
                     </p>
                 </div>
 
-                {loading ? (
+                {error ? (
+                    <div className="text-center py-20 text-red-500">
+                        <p>{error}</p>
+                        <button onClick={() => window.location.reload()} className="mt-4 text-primary underline">Try Again</button>
+                    </div>
+                ) : loading ? (
                     <div className="flex justify-center items-center h-64">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
                     </div>

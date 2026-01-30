@@ -14,6 +14,7 @@ const categories = [
 const Home = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -23,6 +24,7 @@ const Home = () => {
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setError('Failed to load seasonal deals.');
                 setLoading(false);
             }
         };
@@ -77,7 +79,9 @@ const Home = () => {
                         <div className="w-16 h-1 bg-black dark:bg-white mx-auto"></div>
                     </div>
 
-                    {loading ? (
+                    {error ? (
+                        <p className="text-center text-red-500">{error}</p>
+                    ) : loading ? (
                         <p className="text-center text-gray-500 dark:text-gray-300">Loading products...</p>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -86,6 +90,7 @@ const Home = () => {
                             ))}
                         </div>
                     )}
+                    pocket
 
                     <div className="text-center mt-12">
                         <Link to="/shop" className="inline-block border-b-2 border-black dark:border-white pb-1 text-sm font-bold uppercase tracking-widest text-black dark:text-white hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary transition-colors">
