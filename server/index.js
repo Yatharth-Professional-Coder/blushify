@@ -18,6 +18,7 @@ app.use(express.json());
 // Routes
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/orders', require('./routes/orderRoutes'));
 
 app.get('/', (req, res) => {
     res.send('Blushify API is running. Please use the Vercel URL for the main website.');

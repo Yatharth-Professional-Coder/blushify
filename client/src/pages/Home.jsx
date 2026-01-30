@@ -90,7 +90,6 @@ const Home = () => {
                             ))}
                         </div>
                     )}
-                    pocket
 
                     <div className="text-center mt-12">
                         <Link to="/shop" className="inline-block border-b-2 border-black dark:border-white pb-1 text-sm font-bold uppercase tracking-widest text-black dark:text-white hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary transition-colors">
