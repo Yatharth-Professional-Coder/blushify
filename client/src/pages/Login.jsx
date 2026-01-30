@@ -16,9 +16,9 @@ const Login = () => {
         try {
             const { data } = await api.post('/auth/login', formData);
             localStorage.setItem('token', data.token);
-            localStorage.setItem('user', JSON.stringify({ name: data.name, userId: data.userId }));
+            localStorage.setItem('user', JSON.stringify({ name: data.name, userId: data.userId, role: data.role }));
             navigate('/');
-            window.location.reload(); // Simple reload to update header state
+            window.location.reload();
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed');
         }

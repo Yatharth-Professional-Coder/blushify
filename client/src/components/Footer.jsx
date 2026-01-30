@@ -1,13 +1,27 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
+    const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
+    const isAdmin = user && user.role === 'admin';
+
     return (
         <footer className="bg-gray-50 pt-16 pb-8 border-t border-gray-100">
             <div className="container-custom grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 {/* Brand */}
                 <div>
                     <h3 className="text-xl font-bold uppercase tracking-widest mb-4">Blushify</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">
+                    <p className="text-gray-500 text-sm leading-relaxed mb-4">
                         Your destination for premium beauty and skincare. Enhancing your natural glow with clean, effective products.
                     </p>
+                    {isAdmin && (
+                        <Link
+                            to="/admin"
+                            className="inline-block bg-red-50 text-red-600 px-4 py-2 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-red-100 transition-colors"
+                        >
+                            Admin Panel
+                        </Link>
+                    )}
                 </div>
 
                 {/* Shop */}
