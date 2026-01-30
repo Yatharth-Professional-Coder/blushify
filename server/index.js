@@ -32,7 +32,7 @@ app.get('/api', (req, res) => {
 });
 
 // SPA fallback - point all other routes to index.html
-app.get('*', (req, res) => {
+app.get('/{*path}', (req, res) => {
     if (!req.path.startsWith('/api')) {
         res.sendFile(path.join(clientDistPath, 'index.html'));
     }
