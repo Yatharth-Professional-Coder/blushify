@@ -123,9 +123,9 @@ const ProductDetails = () => {
                                         <span className="text-3xl font-bold text-gray-800 dark:text-white">₹{product.price.toFixed(2)}</span>
                                     )}
                                 </div>
-                                {product.inStock ? (
+                                {product.countInStock > 0 ? (
                                     <span className="text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded tracking-wide uppercase">
-                                        In Stock
+                                        In Stock ({product.countInStock} Left)
                                     </span>
                                 ) : (
                                     <span className="text-xs font-bold text-red-600 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded tracking-wide uppercase">
@@ -153,8 +153,9 @@ const ProductDetails = () => {
                                     </button>
                                     <span className="flex-1 text-center font-bold">{quantity}</span>
                                     <button
-                                        className="flex-1 h-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                        className="flex-1 h-full hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-50 transition-colors"
                                         onClick={() => setQuantity(q => q + 1)}
+                                        disabled={quantity >= product.countInStock}
                                     >
                                         +
                                     </button>
@@ -165,13 +166,15 @@ const ProductDetails = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <button
                                     onClick={handleAddToCart}
-                                    className="flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-black dark:text-white border-2 border-black dark:border-white px-8 py-4 uppercase tracking-widest font-bold text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
+                                    disabled={product.countInStock === 0}
+                                    className="flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-black dark:text-white border-2 border-black dark:border-white px-8 py-4 uppercase tracking-widest font-bold text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-black"
                                 >
                                     <FaShoppingBag size={18} /> Add to Cart
                                 </button>
                                 <button
                                     onClick={handleBuyNow}
-                                    className="flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black border-2 border-black dark:border-white px-8 py-4 uppercase tracking-widest font-bold text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-black/10"
+                                    disabled={product.countInStock === 0}
+                                    className="flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black border-2 border-black dark:border-white px-8 py-4 uppercase tracking-widest font-bold text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-black/10 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <FaBolt size={18} /> Buy it Now
                                 </button>

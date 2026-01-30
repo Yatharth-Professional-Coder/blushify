@@ -27,12 +27,21 @@ const ProductCard = ({ product }) => {
                     </span>
                 )}
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
-                    <button
-                        onClick={handleAddToCart}
-                        className="w-full bg-black dark:bg-white text-white dark:text-black py-2 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
-                    >
-                        <FaShoppingBag /> Add to Cart
-                    </button>
+                    {product.countInStock > 0 ? (
+                        <button
+                            onClick={handleAddToCart}
+                            className="w-full bg-black dark:bg-white text-white dark:text-black py-2 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+                        >
+                            <FaShoppingBag /> Add to Cart
+                        </button>
+                    ) : (
+                        <button
+                            disabled
+                            className="w-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 py-2 text-sm font-bold uppercase tracking-wider cursor-not-allowed flex items-center justify-center gap-2"
+                        >
+                            Out of Stock
+                        </button>
+                    )}
                 </div>
             </div>
 

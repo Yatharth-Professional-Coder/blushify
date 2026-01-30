@@ -172,15 +172,12 @@ const AdminDashboard = () => {
                                             </div>
                                         </td>
                                         <td className="p-5">
-                                            <button
-                                                onClick={() => handleUpdateProduct(product._id, { inStock: !product.inStock })}
-                                                className={`px-3 py-1.5 rounded-full text-[10px] font-bold uppercase border tracking-widest transition-all ${product.inStock
-                                                    ? 'bg-green-50 text-green-600 border-green-100 hover:bg-green-100'
-                                                    : 'bg-red-50 text-red-600 border-red-100 hover:bg-red-100'
-                                                    }`}
-                                            >
-                                                {product.inStock ? 'Available' : 'Out of Stock'}
-                                            </button>
+                                            <span className={`px-3 py-1.5 rounded-full text-[10px] font-bold uppercase border tracking-widest ${product.countInStock > 0
+                                                ? 'bg-green-50 text-green-600 border-green-100'
+                                                : 'bg-red-50 text-red-600 border-red-100'
+                                                }`}>
+                                                {product.countInStock > 0 ? `${product.countInStock} Left` : 'Out of Stock'}
+                                            </span>
                                         </td>
                                         <td className="p-5">
                                             <button

@@ -10,6 +10,7 @@ const ProductModal = ({ isOpen, onClose, onSave, product }) => {
         category: 'Skin Care',
         images: [''],
         inStock: true,
+        countInStock: 0,
         isDailyDeal: false
     });
 
@@ -30,6 +31,7 @@ const ProductModal = ({ isOpen, onClose, onSave, product }) => {
                 category: 'Skin Care',
                 images: [''],
                 inStock: true,
+                countInStock: 0,
                 isDailyDeal: false
             });
         }
@@ -63,6 +65,7 @@ const ProductModal = ({ isOpen, onClose, onSave, product }) => {
         const dataToSave = {
             ...formData,
             price: Number(formData.price),
+            countInStock: Number(formData.countInStock),
             salePrice: formData.salePrice ? Number(formData.salePrice) : undefined,
             images: formData.images.filter(img => img.trim() !== '')
         };
@@ -140,6 +143,20 @@ const ProductModal = ({ isOpen, onClose, onSave, product }) => {
                                 <option value="Bridal">Bridal</option>
                                 <option value="Face">Face</option>
                             </select>
+                        </div>
+
+                        <div>
+                            <label className="text-[10px] font-bold uppercase text-gray-400 mb-1 block tracking-widest">Stock Quantity</label>
+                            <input
+                                type="number"
+                                name="countInStock"
+                                min="0"
+                                required
+                                value={formData.countInStock}
+                                onChange={handleChange}
+                                placeholder="0"
+                                className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 focus:ring-1 focus:ring-black dark:focus:ring-white outline-none transition-all"
+                            />
                         </div>
 
                         <div className="flex gap-6 items-end h-full pt-4">
