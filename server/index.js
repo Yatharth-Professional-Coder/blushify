@@ -25,6 +25,9 @@ app.use('/api/auth', require('./routes/authRoutes'));
 
 // Serve static assets in production
 const clientDistPath = path.join(__dirname, '../client/dist');
+if (!require('fs').existsSync(clientDistPath)) {
+    console.warn(`WARNING: Client dist path not found at ${clientDistPath}`);
+}
 app.use(express.static(clientDistPath));
 
 app.get('/api', (req, res) => {
@@ -34,7 +37,12 @@ app.get('/api', (req, res) => {
 // SPA fallback - point all other routes to index.html
 app.get('/{*path}', (req, res) => {
     if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(clientDistPath, 'index.html'));
+        const indexPath = path.join(clientDistPath, 'index.html');
+        if (require('fs').existsSync(indexPath)) {
+            res.sendFile(indexPath);
+        } else {
+            res.status(404).send('Frontend build not found. Please ensure the client is built.');
+        }
     }
 });
 
