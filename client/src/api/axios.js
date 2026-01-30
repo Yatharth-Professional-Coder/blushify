@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const isLocalhost = window.location.hostname === 'localhost';
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'https://blushify-l5kv.onrender.com/api',
+    baseURL: import.meta.env.VITE_API_URL || (isLocalhost ? 'http://localhost:3001/api' : 'https://blushify-l5kv.onrender.com/api'),
 });
 
 // Add a request interceptor to include the JWT token

@@ -50,7 +50,7 @@ const Cart = () => {
                                                 </div>
                                             </td>
                                             <td className="py-6 text-sm">
-                                                ${(item.salePrice || item.price).toFixed(2)}
+                                                ₹{(item.salePrice || item.price).toFixed(2)}
                                             </td>
                                             <td className="py-6">
                                                 <div className="flex items-center border border-gray-300 w-24">
@@ -70,7 +70,7 @@ const Cart = () => {
                                                 </div>
                                             </td>
                                             <td className="py-6 font-bold text-sm">
-                                                ${((item.salePrice || item.price) * item.quantity).toFixed(2)}
+                                                ₹{((item.salePrice || item.price) * item.quantity).toFixed(2)}
                                             </td>
                                             <td className="py-6 text-right">
                                                 <button
@@ -93,7 +93,7 @@ const Cart = () => {
                             <h2 className="text-xl font-bold mb-6 uppercase tracking-wider">Cart Totals</h2>
                             <div className="flex justify-between mb-4 text-sm">
                                 <span>Subtotal</span>
-                                <span>${total.toFixed(2)}</span>
+                                <span>₹{total.toFixed(2)}</span>
                             </div>
                             <div className="flex justify-between mb-6 text-sm">
                                 <span>Shipping</span>
@@ -101,7 +101,7 @@ const Cart = () => {
                             </div>
                             <div className="flex justify-between mb-8 text-lg font-bold border-t border-gray-200 pt-4">
                                 <span>Total</span>
-                                <span>${total.toFixed(2)}</span>
+                                <span>₹{total.toFixed(2)}</span>
                             </div>
                             <button className="w-full bg-black text-white py-4 font-bold uppercase tracking-widest text-sm hover:bg-gray-800 transition-colors">
                                 Proceed to Checkout

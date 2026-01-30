@@ -116,11 +116,11 @@ const ProductDetails = () => {
                                 <div className="flex items-baseline gap-3">
                                     {product.salePrice ? (
                                         <>
-                                            <span className="text-3xl font-bold text-red-600">${product.salePrice.toFixed(2)}</span>
-                                            <span className="text-xl text-gray-400 line-through">${product.price.toFixed(2)}</span>
+                                            <span className="text-3xl font-bold text-red-600">₹{product.salePrice.toFixed(2)}</span>
+                                            <span className="text-xl text-gray-400 line-through">₹{product.price.toFixed(2)}</span>
                                         </>
                                     ) : (
-                                        <span className="text-3xl font-bold text-gray-800 dark:text-white">${product.price.toFixed(2)}</span>
+                                        <span className="text-3xl font-bold text-gray-800 dark:text-white">₹{product.price.toFixed(2)}</span>
                                     )}
                                 </div>
                                 {product.inStock ? (

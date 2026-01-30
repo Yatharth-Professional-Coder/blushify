@@ -46,11 +46,11 @@ const ProductCard = ({ product }) => {
                 <div className="flex justify-center items-center space-x-2 text-sm">
                     {product.salePrice ? (
                         <>
-                            <span className="text-gray-400 line-through">${product.price.toFixed(2)}</span>
-                            <span className="text-red-500 font-bold">${product.salePrice.toFixed(2)}</span>
+                            <span className="text-gray-400 line-through">₹{product.price.toFixed(2)}</span>
+                            <span className="text-red-500 font-bold">₹{product.salePrice.toFixed(2)}</span>
                         </>
                     ) : (
-                        <span className="font-bold text-gray-900 dark:text-white">${product.price.toFixed(2)}</span>
+                        <span className="font-bold text-gray-900 dark:text-white">₹{product.price.toFixed(2)}</span>
                     )}
                 </div>
             </div>
