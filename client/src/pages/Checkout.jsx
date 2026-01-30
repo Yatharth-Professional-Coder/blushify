@@ -19,7 +19,8 @@ const Checkout = () => {
         state: '',
         zipCode: '',
         country: '',
-        paymentMethod: 'cod' // For now, only COD or Dummy Payment
+        country: '',
+        paymentMethod: 'COD'
     });
 
     const handleChange = (e) => {
@@ -48,7 +49,8 @@ const Checkout = () => {
                 name: formData.name,
                 email: formData.email
             },
-            paymentStatus: 'Pending'
+            paymentStatus: 'Pending',
+            paymentMethod: formData.paymentMethod
         };
 
         try {
@@ -216,9 +218,42 @@ const Checkout = () => {
 
                             <div className="mb-6">
                                 <h3 className="text-sm font-bold uppercase mb-3">Payment Method</h3>
-                                <div className="flex items-center gap-2 p-3 border border-black bg-gray-50">
-                                    <input type="radio" checked readOnly className="accent-black" />
-                                    <span className="text-sm font-medium">Cash on Delivery / Pay Later</span>
+                                <div className="space-y-3">
+                                    <label className={`flex items-center gap-3 p-4 border cursor-pointer transition-all ${formData.paymentMethod === 'Razorpay' ? 'border-black bg-black text-white' : 'border-gray-200 hover:border-black'}`}>
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            value="Razorpay"
+                                            checked={formData.paymentMethod === 'Razorpay'}
+                                            onChange={handleChange}
+                                            className="accent-white"
+                                        />
+                                        <span className="text-sm font-bold uppercase tracking-wider">Razorpay</span>
+                                    </label>
+
+                                    <label className={`flex items-center gap-3 p-4 border cursor-pointer transition-all ${formData.paymentMethod === 'Stripe' ? 'border-black bg-black text-white' : 'border-gray-200 hover:border-black'}`}>
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            value="Stripe"
+                                            checked={formData.paymentMethod === 'Stripe'}
+                                            onChange={handleChange}
+                                            className="accent-white"
+                                        />
+                                        <span className="text-sm font-bold uppercase tracking-wider">Stripe</span>
+                                    </label>
+
+                                    <label className={`flex items-center gap-3 p-4 border cursor-pointer transition-all ${formData.paymentMethod === 'COD' ? 'border-black bg-black text-white' : 'border-gray-200 hover:border-black'}`}>
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            value="COD"
+                                            checked={formData.paymentMethod === 'COD'}
+                                            onChange={handleChange}
+                                            className="accent-white"
+                                        />
+                                        <span className="text-sm font-bold uppercase tracking-wider">Cash on Delivery</span>
+                                    </label>
                                 </div>
                             </div>
 

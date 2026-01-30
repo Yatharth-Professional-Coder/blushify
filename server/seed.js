@@ -16,6 +16,7 @@ const products = [
         category: "Face",
         images: ["https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=500&h=500&fit=crop"],
         inStock: true,
+        countInStock: 20,
         isDailyDeal: true
     },
     {
@@ -26,6 +27,7 @@ const products = [
         category: "Skin Care",
         images: ["https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=500&fit=crop"],
         inStock: true,
+        countInStock: 15,
         isDailyDeal: true
     },
     {
@@ -36,6 +38,7 @@ const products = [
         category: "Lips",
         images: ["https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&h=500&fit=crop"],
         inStock: true,
+        countInStock: 30,
         isDailyDeal: true
     },
     {
@@ -46,6 +49,7 @@ const products = [
         category: "Eyes",
         images: ["https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=500&h=500&fit=crop"],
         inStock: true,
+        countInStock: 25,
         isDailyDeal: true
     },
     // Other Products
@@ -56,7 +60,8 @@ const products = [
         description: "The perfect combo for your special day. Includes blush, highlighter, and setting spray.",
         category: "Bridal Bundle",
         images: ["https://swissbeauty.in/cdn/shop/files/bridal_section_Thumbnail_1_1080x.jpg?v=1736341692"],
-        inStock: true
+        inStock: true,
+        countInStock: 10
     },
     {
         title: "Velvet Matte Lipstick - Red",
@@ -64,7 +69,8 @@ const products = [
         description: "Long-lasting matte lipstick with a velvet finish.",
         category: "Lips",
         images: ["https://swissbeauty.in/cdn/shop/files/3_1-LIPS_140x140.png?v=1747133814"],
-        inStock: true
+        inStock: true,
+        countInStock: 50
     },
     {
         title: "Hydrating Face Serum",
@@ -73,7 +79,8 @@ const products = [
         description: "Deeply hydrating serum with hyaluronic acid.",
         category: "Skin Care",
         images: ["https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 40
     },
     {
         title: "Daily Moisturizer",
@@ -81,7 +88,8 @@ const products = [
         description: "Lightweight moisturizer for daily use.",
         category: "Skin Care",
         images: ["https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 45
     },
     {
         title: "Waterproof Gel Eyeliner",
@@ -89,7 +97,8 @@ const products = [
         description: "Precision gel eyeliner that stays put all day and night.",
         category: "Eyes",
         images: ["https://images.unsplash.com/photo-1625902830302-3f820c7419e8?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 35
     },
     {
         title: "Vitamin C Brightening Mask",
@@ -98,7 +107,8 @@ const products = [
         description: "Revitalize your skin with our Vitamin C packed brightening mask.",
         category: "Skin Care",
         images: ["https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 18
     },
     {
         title: "Liquid Gold Highlighter",
@@ -106,7 +116,8 @@ const products = [
         description: "Ultimate radiance in a bottle. Shimmer like a star.",
         category: "Face",
         images: ["https://images.unsplash.com/photo-1557204562-672522778eee?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 22
     },
     {
         title: "Stay-All-Day Lip Liner",
@@ -114,7 +125,8 @@ const products = [
         description: "Define your lips with our creamy, smudge-proof liner.",
         category: "Lips",
         images: ["https://images.unsplash.com/photo-1616683693504-3ee7e14e644b?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 60
     },
     {
         title: "Ultimate Bridal Palette",
@@ -123,7 +135,8 @@ const products = [
         description: "Every shade you need for a stunning bridal look in one luxury palette.",
         category: "Bridal Bundle",
         images: ["https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500&h=500&fit=crop"],
-        inStock: true
+        inStock: true,
+        countInStock: 8
     },
     {
         title: "Rose Water Soothing Toner",

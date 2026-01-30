@@ -19,6 +19,7 @@ const ProductModal = ({ isOpen, onClose, onSave, product }) => {
             setFormData({
                 ...product,
                 price: product.price.toString(),
+                countInStock: product.countInStock !== undefined ? product.countInStock : 0,
                 salePrice: product.salePrice ? product.salePrice.toString() : '',
                 images: product.images && product.images.length > 0 ? product.images : ['']
             });

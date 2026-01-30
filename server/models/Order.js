@@ -26,7 +26,8 @@ const orderSchema = new mongoose.Schema({
         zipCode: String,
         country: String
     },
-    paymentStatus: { type: String, enum: ['Pending', 'Completed', 'Failed'], default: 'Pending' }
+    paymentStatus: { type: String, enum: ['Pending', 'Completed', 'Failed'], default: 'Pending' },
+    paymentMethod: { type: String, enum: ['Razorpay', 'Stripe', 'COD'], default: 'COD' }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Order', orderSchema);
