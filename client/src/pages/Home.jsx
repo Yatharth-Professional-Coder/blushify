@@ -37,7 +37,7 @@ const Home = () => {
             <div className="relative h-[600px] bg-gray-100 dark:bg-gray-800 flex items-center">
                 <div className="absolute inset-0">
                     <img
-                        src="http://blushify.infinityfree.me/wp-content/uploads/2025/12/ChatGPT-Image-Dec-23-2025-11_08_22-PM-1.png"
+                        src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=2000&auto=format&fit=crop"
                         alt="Hero Banner"
                         className="w-full h-full object-cover opacity-80 dark:opacity-60"
                     />

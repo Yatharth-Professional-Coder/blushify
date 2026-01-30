@@ -49,4 +49,31 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// PROMOTE ME (Safe way to get admin access on Vercel)
+router.post('/promote-me', async (req, res) => {
+    try {
+        const { email, secret } = req.body;
+        const promotionSecret = process.env.ADMIN_PROMOTION_SECRET || 'blushify_admin_2024';
+
+        if (!secret || secret !== promotionSecret) {
+            return res.status(401).json({ message: 'Invalid promotion secret' });
+        }
+
+        const user = await User.findOneAndUpdate(
+            { email },
+            { role: 'admin' },
+            { new: true }
+        );
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found. Please register first.' });
+        }
+
+        console.log(`User ${email} promoted to admin via secret.`);
+        res.json({ message: `Success! ${email} is now an Admin.`, user: { name: user.name, role: user.role } });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
