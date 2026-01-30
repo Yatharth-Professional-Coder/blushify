@@ -1,0 +1,9 @@
+{
+    "name": "blushify-root",
+    "version": "1.0.0",
+    "description": "Root for Blushify MERN project",
+    "scripts": {
+        "build": "cd client && npm install && npm run build && cd ../server && npm install",
+        "start": "cd server && npm start"
+    }
+}

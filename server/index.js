@@ -23,8 +23,19 @@ app.use(express.json());
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
 
+// Serve static assets in production
+const clientDistPath = path.join(__dirname, '../client/dist');
+app.use(express.static(clientDistPath));
+
 app.get('/api', (req, res) => {
     res.send('Blushify API is running');
+});
+
+// SPA fallback - point all other routes to index.html
+app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(clientDistPath, 'index.html'));
+    }
 });
 
 // Start Server - only if not imported
