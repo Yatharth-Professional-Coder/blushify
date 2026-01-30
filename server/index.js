@@ -14,24 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: (origin, callback) => {
-        const allowedOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-
-        // Allow the specific CLIENT_URL
-        if (origin === allowedOrigin) return callback(null, true);
-
-        // Allow Vercel preview deployments (any subdomain of vercel.app)
-        // Adjust this regex if you want to be more restrictive, e.g., /blushify-.*\.vercel\.app$/
-        if (origin.endsWith('.vercel.app')) return callback(null, true);
-
-        // Allow localhost for development
-        if (origin.includes('localhost')) return callback(null, true);
-
-        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
-    },
+    origin: 'http://localhost:5173',
     credentials: true
 }));
 app.use(express.json());
@@ -42,20 +25,6 @@ app.use('/api/auth', require('./routes/authRoutes'));
 
 app.get('/api', (req, res) => {
     res.send('Blushify API is running');
-});
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*path', (req, res) => {
-    const indexPath = path.join(__dirname, '../client/dist/index.html');
-    if (require('fs').existsSync(indexPath)) {
-        res.sendFile(indexPath);
-    } else {
-        res.status(404).send('Frontend build not found. Please ensure the client is built.');
-    }
 });
 
 // Start Server
